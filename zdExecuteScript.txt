@@ -1,0 +1,21 @@
+#!/bin/bash
+echo "Descend into 'testdirectory' directory"
+cd testdirectory
+#
+for item in *
+do
+  echo " "
+  echo "EXECUTING" $item
+  cd $item
+# arguments are
+#     the file for the executable machine code
+#     the file that is data to be read by RD instruction
+#     the file for the output of the WRT instruction
+#     the static log file for tracing what's happening
+  ./Aprog ../../adotoutsquares ../../zzin zzzfourout zzzfourlog
+  cd ..
+echo "EXECUTION COMPLETE"
+done
+echo "Return from 'testdirectory' directory"
+cd ..
+echo " "
